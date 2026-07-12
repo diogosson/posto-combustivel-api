@@ -24,7 +24,7 @@ public class TipoCombustivelService {
     }
 
     @Transactional
-    private void deletarPorId(Integer id) {
+    public void deletarPorId(Integer id) {
 
         boolean existeTipo = tipoCombustivelRepository.existsById(id);
 
@@ -35,7 +35,7 @@ public class TipoCombustivelService {
         tipoCombustivelRepository.deleteById(id);
     }
 
-    private void alterarPorId(Integer id, TipoCombustivel tipo) {
+    public void alterarPorId(Integer id, TipoCombustivel tipo) {
 
         TipoCombustivel tipoEncontrado = buscarPorId(id);
         tipo.setId(tipoEncontrado.getId());

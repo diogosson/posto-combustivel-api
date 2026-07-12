@@ -24,7 +24,7 @@ public class BombaCombustivelService {
     }
 
     @Transactional
-    private void deletarPorId(Integer id) {
+    public void deletarPorId(Integer id) {
 
         boolean existeBomba = bombasCombustivelRepository.existsById(id);
 
@@ -35,7 +35,7 @@ public class BombaCombustivelService {
         bombasCombustivelRepository.deleteById(id);
     }
 
-    private void alterarPorId(Integer id, BombaCombustivel bomba) {
+    public void alterarPorId(Integer id, BombaCombustivel bomba) {
 
         BombaCombustivel bombaEncontrada = buscarPorId(id);
         bomba.setId(bombaEncontrada.getId());
