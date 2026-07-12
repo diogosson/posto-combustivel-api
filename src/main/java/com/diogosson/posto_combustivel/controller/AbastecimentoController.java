@@ -13,7 +13,7 @@ import static org.springframework.http.ResponseEntity.ok;
 import static org.springframework.http.ResponseEntity.status;
 
 @RestController
-@RequestMapping("/abastemcimento")
+@RequestMapping("/abastecimento")
 @RequiredArgsConstructor
 public class AbastecimentoController {
     private final AbastecimentoService abastecimentoService;
