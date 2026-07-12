@@ -4,13 +4,13 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "bombas_combustivel")
+@Table(name = "bomba_combustivel")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class BombasCombustivel {
+public class BombaCombustivel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -18,6 +18,6 @@ public class BombasCombustivel {
     private String nome;
     @ManyToOne
     @JoinColumn(name = "tipo_combustivel_id")
-    private TiposCombustivel tiposCombustivel;
+    private TipoCombustivel tipoCombustivel;
 
 }

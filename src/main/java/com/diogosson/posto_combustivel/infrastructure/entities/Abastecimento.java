@@ -18,8 +18,8 @@ public class Abastecimento {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @OneToOne
-    @JoinColumn(name = "bombas_combustivel_id")
-    private BombasCombustivel bombasCombustivel;
+    @JoinColumn(name = "bomba_combustivel_id")
+    private BombaCombustivel bombaCombustivel;
     @Column(name = "data_abastecimento")
     private LocalDate dataAbastecimento;
     @Column(name = "valor_total")
