@@ -1,5 +1,6 @@
 package com.diogosson.posto_combustivel.controller;
 
+import com.diogosson.posto_combustivel.dtos.TipoCombustivelRequest;
 import com.diogosson.posto_combustivel.infrastructure.entities.TipoCombustivel;
 import com.diogosson.posto_combustivel.service.TipoCombustivelService;
 import lombok.RequiredArgsConstructor;
@@ -17,9 +18,9 @@ public class TipoCombustivelController {
     private final TipoCombustivelService tipoCombustivelService;
 
     @PostMapping
-    public ResponseEntity<Void> criar(@RequestBody TipoCombustivel tipoCombustivel) {
+    public ResponseEntity<Void> criar(@RequestBody TipoCombustivelRequest request) {
 
-        tipoCombustivelService.criar(tipoCombustivel);
+        tipoCombustivelService.criar(request);
 
         return status(CREATED).build();
     }
@@ -39,7 +40,7 @@ public class TipoCombustivelController {
     @PutMapping("/{id}")
     public ResponseEntity<Void> alterarPorId(
             @PathVariable Integer id,
-            @RequestBody TipoCombustivel tipoCombustivel) {
+            @RequestBody TipoCombustivelRequest tipoCombustivel) {
 
         tipoCombustivelService.alterarPorId(id, tipoCombustivel);
 
