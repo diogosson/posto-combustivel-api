@@ -1,5 +1,6 @@
 package com.diogosson.posto_combustivel.service;
 
+import com.diogosson.posto_combustivel.dtos.TipoCombustivelRequest;
 import com.diogosson.posto_combustivel.infrastructure.entities.TipoCombustivel;
 import com.diogosson.posto_combustivel.infrastructure.repositories.TipoCombustivelRepository;
 import jakarta.transaction.Transactional;
@@ -12,8 +13,13 @@ public class TipoCombustivelService {
 
     private final TipoCombustivelRepository tipoCombustivelRepository;
 
-    public void criar(TipoCombustivel tipo) {
-        tipoCombustivelRepository.save(tipo);
+    public void criar(TipoCombustivelRequest request) {
+
+        TipoCombustivel tipoCombustivel = new TipoCombustivel();
+        tipoCombustivel.setNome(request.nome());
+        tipoCombustivel.setPrecoLitro(request.precoLitro());
+
+        tipoCombustivelRepository.save(tipoCombustivel);
     }
 
     public TipoCombustivel buscarPorId(Integer id) {
@@ -35,11 +41,16 @@ public class TipoCombustivelService {
         tipoCombustivelRepository.deleteById(id);
     }
 
-    public void alterarPorId(Integer id, TipoCombustivel tipo) {
+    public void alterarPorId(Integer id, TipoCombustivelRequest request) {
 
         TipoCombustivel tipoEncontrado = buscarPorId(id);
-        tipo.setId(tipoEncontrado.getId());
 
-        tipoCombustivelRepository.save(tipo);
+        TipoCombustivel tipoCombustivel = new TipoCombustivel();
+
+        tipoCombustivel.setId(tipoEncontrado.getId());
+        tipoCombustivel.setNome(request.nome());
+        tipoCombustivel.setPrecoLitro(request.precoLitro());
+
+        tipoCombustivelRepository.save(tipoCombustivel);
     }
 }
